@@ -19,7 +19,7 @@ for _ in os.listdir(path):
         filename = "Asia"
         dt = pandas.DataFrame(team1, columns= ['Source IP'])
         dt['filename']= filename
-        dt.to_csv('hello.csv', index=False, header=False, mode='a')
+        dt.to_csv('combined.csv', index=False, header=False, mode='a')
         print(dt)
     elif _.startswith("NA") and _.endswith('.csv'):
         df = pandas.read_csv(_)
@@ -27,7 +27,7 @@ for _ in os.listdir(path):
         filename = "NA Prod"
         dt = pandas.DataFrame(team1, columns= ['Source IP'])
         dt['filename']= filename
-        dt.to_csv('hello.csv', index=False, header=False, mode='a')
+        dt.to_csv('combined.csv', index=False, header=False, mode='a')
         print(dt)
     else:
         pass

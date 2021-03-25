@@ -1,5 +1,4 @@
-import os, pandas, zipfile
-
+import os, pandas, zipfile, sys
 
 def csv_parser(path):
     os.chdir(path)
@@ -13,13 +12,12 @@ def csv_parser(path):
             envname = os.path.splitext(file_name)[0].strip('0123456789')
             dt = pandas.DataFrame(de_dupe_ip, columns= ['Source IP'])
             dt['Environment']= envname
-            dt.to_csv(f'{path}Combined.csv', index=False, header=False, mode='a')
-         
+            dt.to_csv(f'{path}\Combined.csv', index=False, header=False, mode='a')
+
         else:
             pass
 
 
 if __name__ == '__main__':
-    path = 'C:\\Users\\SM5047417\\Desktop\\Engineering Test\\Engineering Test Files\\'
+    path = sys.argv[1]
     csv_parser(path)
-

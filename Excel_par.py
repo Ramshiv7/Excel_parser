@@ -1,33 +1,25 @@
-import os, pandas, zipfile, os   
-print(os.getcwd())
+import os, pandas, zipfile
 
-path = 'C:\\Users\\SM5047417\\Desktop\\Engineering Test\\Engineering Test Files\\'
-zp_name = "Engineering Test.zip"
 
-with zipfile.ZipFile(zp_name, "r") as zip:
-    print("Extraction Starts")
-    zip.extractall()
-    print('Done!') 
- 
+def csv_parser(path):
+    os.chdir(path)
 
-os.chdir(path)
+    for file_name in os.listdir(path):
+        if file_name.endswith('.csv') and file_name != "Combined":
+            full_name = os.path.join(path,file_name)
+            df = pandas.read_csv(file_name)
+            de_dupe_ip = df.drop_duplicates(subset=['Source IP'])
+            de_dupe_ip.sort_values(by=['Source IP'], kind='quicksort', ignore_index=False)
+            envname = os.path.splitext(file_name)[0].strip('0123456789')
+            dt = pandas.DataFrame(de_dupe_ip, columns= ['Source IP'])
+            dt['Environment']= envname
+            dt.to_csv(f'{path}Combined.csv', index=False, header=False, mode='a')
+         
+        else:
+            pass
 
-for _ in os.listdir(path):
-    if _.startswith("Asia") and _.endswith('.csv'):
-        df = pandas.read_csv(_)
-        team1 = df.drop_duplicates(subset=['Source IP'])
-        filename = "Asia"
-        dt = pandas.DataFrame(team1, columns= ['Source IP'])
-        dt['filename']= filename
-        dt.to_csv('combined.csv', index=False, header=False, mode='a')
-        print(dt)
-    elif _.startswith("NA") and _.endswith('.csv'):
-        df = pandas.read_csv(_)
-        team1 = df.drop_duplicates(subset=['Source IP'])
-        filename = "NA Prod"
-        dt = pandas.DataFrame(team1, columns= ['Source IP'])
-        dt['filename']= filename
-        dt.to_csv('combined.csv', index=False, header=False, mode='a')
-        print(dt)
-    else:
-        pass
+
+if __name__ == '__main__':
+    path = 'C:\\Users\\SM5047417\\Desktop\\Engineering Test\\Engineering Test Files\\'
+    csv_parser(path)
+

@@ -10,4 +10,4 @@ ZP-Name - Represents the Name of Zipped file
 To Execute :
 
 1. Make Sure CSV path is assigned to Path Variable.
-2. Exeute the Python Script - Python Excel_parser.py
+2. Exeute the Python Script - Python Excel_par.py

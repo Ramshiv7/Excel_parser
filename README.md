@@ -2,12 +2,17 @@
 
 Write a Python Code that Traverse through the files in the ZIPPED Folder and generate a combined.csv file.
 
-Path - Represent where the CSV Files Resides 
+Path [ Passed as an Argument to the Script ]- Represents the Directory where the CSV Files Resides. 
 
-ZP-Name - Represents the Name of Zipped file
 
+Execution Definition:
+
+Python Excel_par.py "Path_of_the_folder_containing_csv_files"
+
+Sample Execution :
+
+Python Excel_par.py "C:\Users\SM5047417\Desktop\Engineering Test\Engineering Test Files"
 
 To Execute :
 
-1. Make Sure CSV path is assigned to Path Variable.
-2. Exeute the Python Script - Python Excel_par.py
+Python Excel_par.py "Path_of_CSV"

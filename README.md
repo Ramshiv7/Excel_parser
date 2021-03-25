@@ -7,12 +7,12 @@ Path [ Passed as an Argument to the Script ]- Represents the Directory where the
 
 Execution Definition:
 
-Python Excel_par.py "Path_of_the_folder_containing_csv_files"
+>> Python Excel_par.py "Path_of_the_folder_containing_csv_files"
 
 Sample Execution :
 
-Python Excel_par.py "C:\Users\SM5047417\Desktop\Engineering Test\Engineering Test Files"
+>> Python Excel_par.py "C:\Users\SM5047417\Desktop\Engineering Test\Engineering Test Files"
 
 To Execute :
 
-Python Excel_par.py "Path_of_CSV"
+>> Python Excel_par.py "Path_of_CSV"
